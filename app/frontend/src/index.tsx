@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "regenerator-runtime/runtime";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { initializeIcons } from "@fluentui/react";
 import { MsalProvider } from "@azure/msal-react";
@@ -53,9 +54,14 @@ const router = createHashRouter([
                 path: "qa",
                 lazy: () => import("./pages/ask/Ask")
             },
+
             {
                 path: "*",
                 lazy: () => import("./pages/NoPage")
+            },
+            {
+                path: "interview",
+                lazy: () => import("./pages/interview/VirtualInterview")
             }
         ]
     }
